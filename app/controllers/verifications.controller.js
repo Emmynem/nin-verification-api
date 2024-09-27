@@ -1142,7 +1142,7 @@ export async function verifyIdentity(req, res) {
 						const passcoder_live_response = await axios.post(
 							`${passcoder_live_api_url}${passcoder_verify_nin_url}`,
 							{
-								nin: payload.identification_id,
+								vNIN: payload.identification_id,
 							},
 							{
 								headers: {
@@ -1448,7 +1448,7 @@ export async function publicVerifyIdentity(req, res) {
 						const passcoder_live_response = await axios.post(
 							`${passcoder_live_api_url}${passcoder_verify_nin_url}`,
 							{
-								nin: payload.identification_id,
+								vNIN: payload.identification_id,
 							},
 							{
 								headers: {
@@ -1458,8 +1458,11 @@ export async function publicVerifyIdentity(req, res) {
 						);
 	
 						if (passcoder_live_response.data.success) {
+							console.log(passcoder_live_response.data.data);
 							if (passcoder_live_response.data.data === null) {
 								BadRequestError(res, { unique_id: anonymous, text: "No data found" }, null);
+							} else if (passcoder_live_response.data.data.verification.status === "NOT-VERIFIED") {
+								BadRequestError(res, { unique_id: anonymous, text: "Identification not verified" }, null);
 							} else {
 								if (payload.agency_unique_id) {
 									const update_sync_timestamp = await AGENCIES.update(
@@ -1579,8 +1582,11 @@ export async function publicVerifyIdentity(req, res) {
 						);
 
 						if (passcoder_live_response.data.success) {
+							console.log(passcoder_live_response.data.data);
 							if (passcoder_live_response.data.data === null) {
 								BadRequestError(res, { unique_id: anonymous, text: "No data found" }, null);
+							} else if (passcoder_live_response.data.data.verification.status === "NOT-VERIFIED") {
+								BadRequestError(res, { unique_id: anonymous, text: "Identification not verified" }, null);
 							} else {
 								if (payload.agency_unique_id) {
 									const update_sync_timestamp = await AGENCIES.update(

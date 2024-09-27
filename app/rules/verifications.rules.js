@@ -146,41 +146,6 @@ export const verification_rules = {
 			.bail()
 			.isString().isLength({ min: 2, max: 200 })
 			.withMessage("Invalid length (2 - 200) characters"),
-		check('nok_state', "Next of Kin State is required")
-			.exists({ checkNull: true, checkFalsy: true })
-			.bail()
-			.isString().isLength({ min: 2, max: 200 })
-			.withMessage("Invalid length (2 - 200) characters"),
-		check('nok_lga', "Next of Kin LGA is required")
-			.exists({ checkNull: true, checkFalsy: true })
-			.bail()
-			.isString().isLength({ min: 2, max: 200 })
-			.withMessage("Invalid length (2 - 200) characters"),
-		check('nok_town', "Next of Kin Town is required")
-			.exists({ checkNull: true, checkFalsy: true })
-			.bail()
-			.isString().isLength({ min: 2, max: 200 })
-			.withMessage("Invalid length (2 - 200) characters"),
-		check('nok_address_1', "Next of Kin Address 1 is required")
-			.exists({ checkNull: true, checkFalsy: true })
-			.bail()
-			.isString().isLength({ min: 2, max: 200 })
-			.withMessage("Invalid length (2 - 200) characters"),
-		check('nok_address_2')
-			.optional({ checkFalsy: false })
-			.bail()
-			.isString().isLength({ min: 2, max: 200 })
-			.withMessage("Invalid length (2 - 200) characters"),
-		check('native_spoken_lang', "Native Spoken Language is required")
-			.exists({ checkNull: true, checkFalsy: true })
-			.bail()
-			.isString().isLength({ min: 2, max: 200 })
-			.withMessage("Invalid length (2 - 200) characters"),
-		check('other_spoken_lang', "Other Spoken Language is required")
-			.exists({ checkNull: true, checkFalsy: true })
-			.bail()
-			.isString().isLength({ min: 2, max: 200 })
-			.withMessage("Invalid length (2 - 200) characters"),
 	],
 	forSearching: [
 		check('search', "Search is required")

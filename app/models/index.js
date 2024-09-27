@@ -56,6 +56,9 @@ db.users.belongsTo(db.agencies, { foreignKey: 'agency_unique_id', targetKey: 'un
 // db.agencies.hasMany(db.verifications, { foreignKey: 'agency_unique_id', sourceKey: 'unique_id' });
 db.verifications.belongsTo(db.agencies, { foreignKey: 'agency_unique_id', targetKey: 'unique_id' });
 
+// db.providers.hasMany(db.verifications, { foreignKey: 'provider_unique_id', sourceKey: 'unique_id' });
+db.verifications.belongsTo(db.providers, { foreignKey: 'provider_unique_id', targetKey: 'unique_id' });
+
 //    - Logs
 db.users.hasMany(db.logs, { foreignKey: 'user_unique_id', sourceKey: 'unique_id' });
 db.logs.belongsTo(db.users, { foreignKey: 'user_unique_id', targetKey: 'unique_id' });
