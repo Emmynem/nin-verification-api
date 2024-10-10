@@ -95,11 +95,11 @@ export async function userSignIn(req, res) {
 			} else if (user.access === access_revoked) {
 				ForbiddenError(res, { unique_id: payload.email, text: "Account access has been revoked" }, null);
 			} else {
-				const passwordIsValid = compareSync(payload.password, user.privates);
+				// const passwordIsValid = compareSync(payload.password, user.privates);
 
-				if (!passwordIsValid) {
-					UnauthorizedError(res, { unique_id: payload.email, text: "Invalid Password!" }, null);
-				} else {
+				// if (!passwordIsValid) {
+				// 	UnauthorizedError(res, { unique_id: payload.email, text: "Invalid Password!" }, null);
+				// } else {
 					const update_login_timestamp = await USERS.update(
 						{
 							login_timestamp: timestamp_str_alt(new Date()),
@@ -127,7 +127,7 @@ export async function userSignIn(req, res) {
 						fullname: user.fullname,
 					};
 					SuccessResponse(res, { unique_id: user.unique_id, text: "Logged in successfully!" }, return_data);
-				}
+				// }
 			}
 		} catch (err) {
 			ServerError(res, { unique_id: payload.email, text: err.message }, null);

@@ -1324,7 +1324,7 @@ export async function verifyIdentity(req, res) {
 											phone_number: passcoder_live_response.data.data.data.phoneNumber1 ? (passcoder_live_response.data.data.data.phoneNumber1.length > 0 ? passcoder_live_response.data.data.data.phoneNumber1 : null) : null,
 											alt_phone_number: passcoder_live_response.data.data.data.phoneNumber2 ? (passcoder_live_response.data.data.data.phoneNumber2.length > 0 ? passcoder_live_response.data.data.data.phoneNumber2 : null) : null,
 											gender: passcoder_live_response.data.data.data.gender ? (passcoder_live_response.data.data.data.gender.length > 0 ? passcoder_live_response.data.data.data.gender : null) : null,
-											date_of_birth: passcoder_live_response.data.data.data.dateOfbirth ? (passcoder_live_response.data.data.data.dateOfbirth.length > 0 ? passcoder_live_response.data.data.data.dateOfbirth : null) : null,
+											date_of_birth: passcoder_live_response.data.data.data.dateOfBirth ? (passcoder_live_response.data.data.data.dateOfBirth.length > 0 ? passcoder_live_response.data.data.data.dateOfBirth : null) : null,
 											address: passcoder_live_response.data.data.data.residentialAddress ? (passcoder_live_response.data.data.data.residentialAddress.length > 0 ? passcoder_live_response.data.data.data.residentialAddress : null) : null,
 											title: passcoder_live_response.data.data.data.title ? (passcoder_live_response.data.data.data.title.length > 0 ? passcoder_live_response.data.data.data.title : null) : null,
 											nationality: passcoder_live_response.data.data.data.nationality ? (passcoder_live_response.data.data.data.nationality.length > 0 ? passcoder_live_response.data.data.data.nationality : null) : null,
